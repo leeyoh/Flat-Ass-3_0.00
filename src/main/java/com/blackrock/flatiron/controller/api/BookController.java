@@ -16,12 +16,22 @@ public class BookController {
 
     @Autowired
     BookService bookService;
-
+    @DeleteMapping("/{id}")
+    public void deleteBook(@PathVariable Long id){
+        bookService.deleteBook(id);
+    }
+    @PutMapping("/{id}")
+    public BookDTO upateBook(@PathVariable Long id, @RequestBody CreateBookDTO bookDTO){
+        return bookService.updateBook(id,bookDTO);
+    }
     @GetMapping
     public List<BookDTO> getBooks(){
         return bookService.getBooks();
     }
-
+    @GetMapping("/{id}")
+    public BookDTO getBook(@PathVariable Long id){
+        return bookService.getBook(id);
+    }
     @PostMapping
     public BookDTO createBook(@RequestBody CreateBookDTO bookDTO){
         return bookService.createBook(bookDTO);
