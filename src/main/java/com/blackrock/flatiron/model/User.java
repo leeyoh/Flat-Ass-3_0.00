@@ -28,7 +28,7 @@ public class User {
 
     @NotNull
     @NotBlank
-    private String name;
+    private String username;
 
     @NotNull
     @NotBlank
@@ -41,4 +41,15 @@ public class User {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }
