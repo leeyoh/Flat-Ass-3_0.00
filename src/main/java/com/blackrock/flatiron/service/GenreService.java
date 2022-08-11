@@ -2,8 +2,6 @@ package com.blackrock.flatiron.service;
 
 import com.blackrock.flatiron.dto.BookDTO;
 import com.blackrock.flatiron.model.Genre;
-import com.blackrock.flatiron.repository.AuthorRepository;
-import com.blackrock.flatiron.repository.BookRepository;
 import com.blackrock.flatiron.repository.GenreRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
