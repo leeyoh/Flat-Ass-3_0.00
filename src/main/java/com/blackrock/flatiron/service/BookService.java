@@ -27,8 +27,15 @@ public class BookService {
     private ModelMapper mapper;
 
     public List<BookDTO> getBooks(){
-
-        return null;
+        return bookRepository.findAll().stream().map(
+                book -> {
+                    BookDTO bookDTO = mapper.map(book, BookDTO.class);
+                    String author = book.getAuthor().getName();
+                    bookDTO.setAuthor(author);
+                    bookDTO.setGenres(book.getGenreSet().stream().map(g -> g.getName()).toList());
+                    return bookDTO;
+                }
+        ).toList();
     }
     public BookDTO createBook(CreateBookDTO bookDTO){
         Book book = mapper.map(bookDTO, Book.class);
@@ -61,5 +68,6 @@ public class BookService {
         resBookDTO.setGenres(book.getGenreSet().stream().map(val-> val.getName()).toList());
         return resBookDTO;
     }
+
 
 }
