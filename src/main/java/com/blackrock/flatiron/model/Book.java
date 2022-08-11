@@ -32,10 +32,8 @@ public class Book {
     @NotBlank
     private String title;
 
-    @NotNull
-    @NotBlank
     @Min(value = 0)
-    @Max(value = Integer.MAX_VALUE)
+    @Max(Integer.MAX_VALUE)
     private int pages;
 
     @Temporal(TemporalType.DATE)
@@ -59,4 +57,19 @@ public class Book {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", pages=" + pages +
+                ", published=" + published +
+                ", readingSet=" + readingSet +
+                ", genreSet=" + genreSet +
+                ", author=" + author +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }
