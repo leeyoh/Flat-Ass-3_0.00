@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -29,17 +30,18 @@ public class BookService {
     public BookDTO createBook(CreateBookDTO bookDTO){
         Book book = mapper.map(bookDTO, Book.class);
         book.setAuthor(authorRepository.findByName(bookDTO.getAuthor()));
-
         Set<Genre> genreSet = book.getGenreSet();
+        Book finalBook = book;
         bookDTO.getGenre().forEach(genreName -> {
             Genre genre = genreRepository.findByName(genreName);
             if(genre == null){
-                genre = Genre.builder().name(genreName).build();
+                genre = new Genre();
+                genre.setName(genreName);
+                genre.getBookSet().add(finalBook);
                 genreRepository.save(genre);
             }
             genreSet.add(genre);
         });
-        System.out.println(book);
         try{
             book = bookRepository.save(book);
         } catch( Exception e){

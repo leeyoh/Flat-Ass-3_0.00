@@ -2,6 +2,7 @@ package com.blackrock.flatiron.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;

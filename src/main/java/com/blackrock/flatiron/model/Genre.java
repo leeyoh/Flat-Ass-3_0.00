@@ -1,5 +1,6 @@
 package com.blackrock.flatiron.model;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -34,6 +35,7 @@ public class Genre {
     private String name;
 
     @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinTable(
             name = "Genre_Books",
             joinColumns = {@JoinColumn(name = "genre_id")},
