@@ -1,5 +1,7 @@
 package com.blackrock.flatiron.model;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -8,6 +10,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 //Lombok Annotations
 @Getter
@@ -20,8 +24,9 @@ import java.time.LocalDateTime;
 //Auditing Entity is from spring data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "`User`")
-public class User {
+@Table(name = "`Genre`")
+
+public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,9 +35,13 @@ public class User {
     @NotBlank
     private String name;
 
-    @NotNull
-    @NotBlank
-    private String password;
+    @ManyToMany
+    @JoinTable(
+            name = "Genre_Books",
+            joinColumns = {@JoinColumn(name = "genre_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_id")}
+    )
+    private Set<Book> bookSet = new HashSet<Book>();
 
     @CreatedDate
     @Column(name = "created_at")

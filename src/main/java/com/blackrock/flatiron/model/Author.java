@@ -20,8 +20,9 @@ import java.time.LocalDateTime;
 //Auditing Entity is from spring data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "`User`")
-public class User {
+@Table(name = "`Author`")
+
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,10 +30,6 @@ public class User {
     @NotNull
     @NotBlank
     private String name;
-
-    @NotNull
-    @NotBlank
-    private String password;
 
     @CreatedDate
     @Column(name = "created_at")

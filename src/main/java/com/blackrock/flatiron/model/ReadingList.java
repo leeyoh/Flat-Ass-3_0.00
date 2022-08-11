@@ -1,5 +1,9 @@
 package com.blackrock.flatiron.model;
-import lombok.*;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -8,31 +12,35 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
-//Lombok Annotations
+@Entity
+@Table(name = "`ReadingList`")
 @Getter
 @Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-
-//Javax persistence?
-//Auditing Entity is from spring data
 @EntityListeners(AuditingEntityListener.class)
-@Entity
-@Table(name = "`User`")
-public class User {
+
+public class ReadingList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotNull
     @NotBlank
     private String name;
 
-    @NotNull
-    @NotBlank
-    private String password;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private User user;
+
+    @ManyToMany
+    @JoinTable(
+            name = "ReadingList_Book",
+            joinColumns = {@JoinColumn(name = "readinglist_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_id")}
+    )
+    private Set<Book> bookSet = new HashSet<Book>();
 
     @CreatedDate
     @Column(name = "created_at")
