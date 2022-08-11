@@ -13,10 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Date;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
-
 @Service
 public class BookService {
     @Autowired
@@ -27,18 +25,28 @@ public class BookService {
     GenreRepository genreRepository;
     @Autowired
     private ModelMapper mapper;
+
+    public List<BookDTO> getBooks(){
+
+        return null;
+    }
     public BookDTO createBook(CreateBookDTO bookDTO){
         Book book = mapper.map(bookDTO, Book.class);
         book.setAuthor(authorRepository.findByName(bookDTO.getAuthor()));
         Set<Genre> genreSet = book.getGenreSet();
         Book finalBook = book;
+        //Foreach genre the book belongs to
         bookDTO.getGenre().forEach(genreName -> {
             Genre genre = genreRepository.findByName(genreName);
             if(genre == null){
+                //if the genre doesn't exist, create it.
                 genre = new Genre();
                 genre.setName(genreName);
                 genre.getBookSet().add(finalBook);
                 genreRepository.save(genre);
+            } else {
+                //if the genre exits, update it with the new book
+                genre.getBookSet().add(finalBook);
             }
             genreSet.add(genre);
         });
@@ -48,7 +56,10 @@ public class BookService {
             System.out.println(e);
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE,"validation errors",e);
         }
-        return mapper.map(book, BookDTO.class);
+        BookDTO resBookDTO = mapper.map(book, BookDTO.class);
+        resBookDTO.setAuthor(book.getAuthor().getName());
+        resBookDTO.setGenres(book.getGenreSet().stream().map(val-> val.getName()).toList());
+        return resBookDTO;
     }
 
 }
