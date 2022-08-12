@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "de5352be-61f8-4f16-91ab-fd4f8a3b57f8",
-		"name": "Assesment",
+		"_postman_id": "8fd6bb1d-860e-45d0-a4f7-4dcc09605c0b",
+		"name": "Testing Removing a Book when it exits in a reading list",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "22709501"
 	},
@@ -125,7 +125,7 @@
 			"response": []
 		},
 		{
-			"name": "Get all Books",
+			"name": "Create user thomas",
 			"event": [
 				{
 					"listen": "test",
@@ -140,15 +140,12 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\n    \"username\": \"Thomas Jones\",\n    \"password\": \"123sf2ger2t2rwer\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -156,7 +153,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/books",
+					"raw": "http://localhost:8080/api/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -164,60 +161,14 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"books"
+						"users"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get book with id 1",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/books",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"books"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get book with id 1 Copy",
+			"name": "Create ReadingList for Thomas",
 			"event": [
 				{
 					"listen": "test",
@@ -233,11 +184,11 @@
 				}
 			],
 			"request": {
-				"method": "PUT",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"21 Seconds\",\n    \"pages\": 200,\n    \"published\": \"2022-04-28\",\n    \"author\": \"James Thomas\",\n    \"genre\": [\"Fiction\"]\n}",
+					"raw": "{\n    \"username\": \"Thomas Jones\",\n    \"reading_list_name\": \"Homework\",\n    \"reading_list\":[\n        {\n            \"title\": \"22 Seconds\",\n            \"pages\":400,\n            \"author\":\"James Patterson\"\n        },\n        {  \n            \"title\": \"The Hunger Games\",\n            \"pages\":374,\n            \"author\": \"Suzanne Collins\"\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -245,7 +196,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/books/1",
+					"raw": "http://localhost:8080/api/users/1/reading_lists",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -253,8 +204,9 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"books",
-						"1"
+						"users",
+						"1",
+						"reading_lists"
 					]
 				}
 			},
@@ -305,7 +257,7 @@
 			"response": []
 		},
 		{
-			"name": "Get all books of genre 1",
+			"name": "Get all Books Copy",
 			"event": [
 				{
 					"listen": "test",
@@ -336,7 +288,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/genre/1/books",
+					"raw": "http://localhost:8080/api/books",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -344,8 +296,6 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"genre",
-						"1",
 						"books"
 					]
 				}

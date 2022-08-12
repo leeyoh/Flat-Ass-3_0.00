@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "34fa1333-c725-4b7c-a1e2-c016d10edf75",
+		"name": "Test Getting Book by Title",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22709501"
+	},
+	"item": [
+		{
+			"name": "New Book ( Valid )",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var schema = {",
+							"    \"type\": \"object\",",
+							"    \"required\": [",
+							"        \"title\", \"pages\", \"published\"",
+							"    ],",
+							"    \"properties\": {",
+							"      \"title\": {\"type\": \"string\"},",
+							"      \"pages\": {\"type\": \"number\"},",
+							"      \"published\": { \"type\": \"string\",",
+							"            \"format\": \"date-time\"},",
+							"    }",
+							"};",
+							"",
+							"pm.test('Response schema verification', ()=> {",
+							"    console.log(pm.response.json())",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"22 Seconds\",\n    \"pages\": 400,\n    \"published\": \"2022-04-28\",\n    \"author\": \"James Patterson\",\n    \"genre\": [\"Fiction\",\"Thriller\",\"Mystery\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Book Existing Genre ( Valid )",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var schema = {",
+							"    \"type\": \"object\",",
+							"    \"required\": [",
+							"        \"title\", \"pages\", \"published\"",
+							"    ],",
+							"    \"properties\": {",
+							"      \"title\": {\"type\": \"string\"},",
+							"      \"pages\": {\"type\": \"number\"},",
+							"      \"published\": { \"type\": \"string\",",
+							"            \"format\": \"date-time\"},",
+							"    }",
+							"};",
+							"",
+							"pm.test('Response schema verification', ()=> {",
+							"    console.log(pm.response.json())",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"The Hunger Games\",\n    \"pages\": 374,\n    \"published\": \"2008-10-14\",\n    \"author\": \"Suzanne Collins\",\n    \"genre\": [\"Fiction\",\"Thriller\",\"Young Adult\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Book Existing Genre ( Valid ) Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var schema = {",
+							"    \"type\": \"object\",",
+							"    \"required\": [",
+							"        \"title\", \"pages\", \"published\"",
+							"    ],",
+							"    \"properties\": {",
+							"      \"title\": {\"type\": \"string\"},",
+							"      \"pages\": {\"type\": \"number\"},",
+							"      \"published\": { \"type\": \"string\",",
+							"            \"format\": \"date-time\"},",
+							"    }",
+							"};",
+							"",
+							"pm.test('Response schema verification', ()=> {",
+							"    console.log(pm.response.json())",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"The Hunger Games\",\n    \"pages\": 3234,\n    \"published\": \"2001-10-14\",\n    \"author\": \"Suzanne Koller\",\n    \"genre\": [\"Fiction\", \"Fake\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create ReadingList for Thomas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Thomas Jones\",\n    \"reading_list_name\": \"Homework\",\n    \"reading_list\":[\n        {\n            \"title\": \"22 Seconds\",\n            \"pages\":400,\n            \"author\":\"James Patterson\"\n        },\n        {  \n            \"title\": \"The Hunger Games\",\n            \"pages\":374,\n            \"author\": \"Suzanne Collins\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/1/reading_lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"reading_lists"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
