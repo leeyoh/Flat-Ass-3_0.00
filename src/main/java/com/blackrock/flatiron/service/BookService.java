@@ -1,6 +1,7 @@
 package com.blackrock.flatiron.service;
 
 import com.blackrock.flatiron.dto.BookDTO;
+import com.blackrock.flatiron.dto.BookListDTO;
 import com.blackrock.flatiron.dto.CreateBookDTO;
 import com.blackrock.flatiron.model.Author;
 import com.blackrock.flatiron.model.Book;
@@ -90,6 +91,21 @@ public class BookService {
         return resBookDTO;
     }
 
+    /**
+     * Get books by title
+     * @param title
+     * @return
+     */
+    public List<BookListDTO> getBooksByTitle(String title){
+        List<BookListDTO> books = bookRepository.findByTitle(title).stream().map(b -> {
+            return mapper.map(b, BookListDTO.class);
+        }).toList();
+
+        if(books.size()==0){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No books found");
+        }
+        return books;
+    }
     public BookDTO getBook(Long id){
         Book book = bookRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Book not Found"));
         BookDTO bookDTO = mapper.map(book, BookDTO.class);
