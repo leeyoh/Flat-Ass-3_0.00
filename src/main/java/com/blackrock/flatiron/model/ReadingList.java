@@ -31,11 +31,12 @@ public class ReadingList {
     private String name;
 
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinTable(
             name = "ReadingList_Book",
             joinColumns = {@JoinColumn(name = "readinglist_id")},

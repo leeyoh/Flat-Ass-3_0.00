@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 @Slf4j
@@ -37,6 +38,25 @@ public class UserService {
         user = mapper.map(userDTO, User.class);
         userRepository.save(user);
         return mapper.map(user,UserDTO.class);
+    }
+    /**
+     *
+     * @param userId
+     * @return
+     */
+    public List<ReadingListDTO> deleteUser(Long userId){
+        User user = userRepository.findById(userId).orElseThrow(()-> new ResponseStatusException(HttpStatus.CONFLICT,"user doesn't exist"));
+        List<ReadingList> readingLists = readingListRepository.findByUser(user);
+        List<ReadingListDTO> resDTO = readingLists.stream().map(r -> mapper.map(r, ReadingListDTO.class)).toList();
+        for(ReadingList rl : readingLists){
+            rl.getBookSet().forEach(book -> {
+                book.getReadingSet().remove(rl);
+            });
+            readingListRepository.delete(rl);
+        }
+        userRepository.delete(user);
+        log.trace(user.toString());
+        return resDTO;
     }
     /**
      * Given a user ID and Reading list id, return all the books in that list.

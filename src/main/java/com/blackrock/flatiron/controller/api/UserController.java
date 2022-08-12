@@ -18,6 +18,10 @@ public class UserController {
     public UserDTO createUser(@RequestBody CreateUserDTO userDTO){
         return userService.createUser(userDTO);
     }
+    @DeleteMapping("/{id}")
+    public List<ReadingListDTO> deleteUser(@PathVariable Long id){
+        return userService.deleteUser(id);
+    }
     @PostMapping("/{id}/reading_lists")
     public List<BookListDTO> createReadingList(@PathVariable Long id, @RequestBody CreateReadingListDTO readingListDTO){
         return userService.createReadingList(id, readingListDTO);

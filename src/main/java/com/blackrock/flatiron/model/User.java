@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 //Lombok Annotations
 @Getter
@@ -29,7 +30,6 @@ public class User {
     @NotNull
     @NotBlank
     private String username;
-
 
     @NotNull
     @NotBlank

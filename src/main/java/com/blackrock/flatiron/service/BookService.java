@@ -27,6 +27,11 @@ public class BookService {
     @Autowired
     private ModelMapper mapper;
 
+    /**
+     * Remove a book from the table
+     * - if the book doesn't exist return a missing status
+     * @param id
+     */
     public void deleteBook(Long id){
         Book book = bookRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Book not Found"));
         book.getGenreSet().forEach(genre -> {
