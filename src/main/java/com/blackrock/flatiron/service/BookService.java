@@ -32,6 +32,9 @@ public class BookService {
         book.getGenreSet().forEach(genre -> {
             genre.getBookSet().remove(book);
         });
+        book.getReadingSet().forEach(readingList -> {
+            readingList.getBookSet().remove(book);
+        });
         bookRepository.deleteById(id);
     }
     public BookDTO updateBook(Long id, CreateBookDTO createBookDTO){
@@ -145,7 +148,6 @@ public class BookService {
         try{
             book = bookRepository.save(book);
         } catch( Exception e){
-            System.out.println(e);
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE,"validation errors",e);
         }
         BookDTO resBookDTO = mapper.map(book, BookDTO.class);

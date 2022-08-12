@@ -2,6 +2,7 @@ package com.blackrock.flatiron.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
@@ -31,10 +32,10 @@ public class ReadingList {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinTable(
             name = "ReadingList_Book",
             joinColumns = {@JoinColumn(name = "readinglist_id")},

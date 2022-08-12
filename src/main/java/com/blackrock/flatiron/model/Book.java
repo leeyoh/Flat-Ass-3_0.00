@@ -48,7 +48,6 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "author_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Author author;
 
     @CreatedDate
