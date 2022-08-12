@@ -1,5 +1,6 @@
 package com.blackrock.flatiron.controller.api;
 import com.blackrock.flatiron.dto.*;
+import com.blackrock.flatiron.model.ReadingList;
 import com.blackrock.flatiron.service.GenreService;
 import com.blackrock.flatiron.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,14 @@ public class UserController {
     @PostMapping("/{id}/reading_lists")
     public List<BookListDTO> createReadingList(@PathVariable Long id, @RequestBody CreateReadingListDTO readingListDTO){
         return userService.createReadingList(id, readingListDTO);
+    }
+    @GetMapping("/{id}/reading_lists")
+    public List<ReadingListDTO> getReadingList(@PathVariable Long id){
+        return userService.getReadingLists(id);
+    }
+
+    @GetMapping("/{id}/reading_lists/{list_id}")
+    public List<BookListDTO> getReadingListBooks(@PathVariable Long id, @PathVariable Long list_id){
+        return userService.getReadingList(id,list_id);
     }
 }

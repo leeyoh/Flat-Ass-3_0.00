@@ -38,6 +38,83 @@ public class UserService {
         userRepository.save(user);
         return mapper.map(user,UserDTO.class);
     }
+    /**
+     * Given a user ID and Reading list id, return all the books in that list.
+     * - If the user doesn't exist, throw a user not found status.
+     * - If the list id doesn't exist, throw a list not found status
+     * @param userId
+     * @return List<ReadingListDTO>
+     * example:
+     * [
+     *      {
+     *          title: "",
+     *          page: "",
+     *          author: ""
+     *      },
+     *      {
+     *          title: "",
+     *          page: "",
+     *          author: ""
+     *      }
+     */
+    public List<BookListDTO> getReadingList(Long userId, Long readingListId){
+        User user = userRepository.findById(userId).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"User Doesn't Exist"));
+        ReadingList readingList = readingListRepository.findById(readingListId).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Reading List Doesn't Exist"));
+        //Check to see if the reading list belongs to the user
+        if(!readingList.getUser().getId().equals(user.getId())){
+            throw new ResponseStatusException(HttpStatus.CONFLICT,"Reading List Doesn't Belong to User");
+        }
+        log.trace(user.toString());
+        log.trace(readingList.toString());
+        return readingList.getBookSet().stream().map(r -> mapper.map(r, BookListDTO.class)).toList();
+    }
+    /**
+     * Given a user ID, return names of all the reading lists associated with the user.
+     * - If the user doesn't exist, throw a user not found status.
+     * @param userId
+     * @return List<ReadingListDTO>
+     * example:
+     * [
+     *      {
+     *          id: 1
+     *          name: "homework"
+     *      },
+     *      {
+     *          id: 2
+     *          name: "fun stuff"
+     *      },
+     */
+    public List<ReadingListDTO> getReadingLists(Long userId){
+        User user = userRepository.findById(userId).orElseThrow(()-> new ResponseStatusException(HttpStatus.CONFLICT,"user doesn't exist"));
+        log.trace(user.toString());
+        return readingListRepository.findByUser(user).stream().map(r -> mapper.map(r, ReadingListDTO.class)).toList();
+    }
+
+    /**
+     * Given an user ID, and ReadingList. Create a reading list for the user.
+     * - If the user doesn't exist, return an error.
+     * - If the reading list doesn't exist create it.
+     * - If a duplicate reading list "name" exists, overwrite it.
+     * - If a user delete a book, the book is removed from the reading list.
+     * @param userId
+     * @param readingListDTO
+     * @return List<BookListDTO>
+     *   A list of books that wasn't pre-registered.
+     *   example:
+     *     [
+     *         {
+     *             "title": "22 Seconds",
+     *             "pages":400,
+     *             "author":"James Patterson"
+     *         },
+     *         {
+     *             "title": "The Hunger Games",
+     *             "pages":374,
+     *             "author": "Suzanne Collins"
+     *         }
+     *     ]
+     * }
+     */
     public List<BookListDTO> createReadingList(Long userId, CreateReadingListDTO readingListDTO){
         //Searches for the user, if they don't exist return
         User user =  userRepository.findByUsername(readingListDTO.getUsername());
@@ -50,7 +127,7 @@ public class UserService {
         if(readingList == null){
             readingList = new ReadingList();
             readingList.setName(readingListDTO.getReading_list_name());
-        } 
+        }
 
         //checks to see if the books exist in the collection.
         //if they don't exist in the collection, add it to the return list.

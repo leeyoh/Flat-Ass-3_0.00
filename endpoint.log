@@ -27086,3 +27086,69 @@ TRACE com.blackrock.flatiron.service.UserService 	 	  Book Missing: 22 Seconds P
 TRACE com.blackrock.flatiron.service.UserService 	 	  Book Missing: 22 Seconds Pages: 400 Author: James Patterson  
 TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
 TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: 22 Seconds Pages: 400 Author: James Patterson  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: 22 Seconds Pages: 400 Author: James Patterson  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: 22 Seconds Pages: 400 Author: James Patterson  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: 22 Seconds Pages: 400 Author: James Patterson  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=2, username='Jay Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=2, username='Jay Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: 22 Seconds Pages: 400 Author: James Patterson  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: 22 Seconds Pages: 400 Author: James Patterson  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@56463376  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@56463376  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@22da28db  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@22da28db  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@70ca0c58  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@70ca0c58  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: 22 Seconds Pages: 400 Author: James Patterson  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: 22 Seconds Pages: 400 Author: James Patterson  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: Harry Potter Pages: 400 Author: J K Rowling  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  Book Found: The Hunger Games Pages: 374 Author: Suzanne Collins  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@1f4ec34d  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@1f4ec34d  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  User{id=1, username='Thomas Jones', createdAt=null, updatedAt=null}  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@1af706da  
+TRACE com.blackrock.flatiron.service.UserService 	 	  com.blackrock.flatiron.model.ReadingList@1af706da  

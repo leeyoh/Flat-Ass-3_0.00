@@ -30,6 +30,7 @@ public class User {
     @NotBlank
     private String username;
 
+
     @NotNull
     @NotBlank
     private String password;
@@ -46,10 +47,11 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + username + '\'' +
-                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
     }
+
 }
